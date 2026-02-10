@@ -34,21 +34,21 @@ export default function UserDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 px-4 py-6 sm:py-8">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800">User Dashboard</h2>
-            <button onClick={logout} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+        <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">User Dashboard</h2>
+            <button onClick={logout} className="w-full sm:w-auto px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition text-sm sm:text-base">
               Logout
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
             <button
               onClick={joinQueue}
               disabled={loading}
-              className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-semibold hover:shadow-lg hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
             >
               {loading ? "Processing..." : "Join Queue"}
             </button>
@@ -56,19 +56,19 @@ export default function UserDashboard() {
             <button
               onClick={getStatus}
               disabled={loading}
-              className="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-semibold hover:shadow-lg hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
             >
               {loading ? "Loading..." : "Check Status"}
             </button>
           </div>
 
           {status && (
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">Queue Status</h3>
+            <div className="bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-200">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-800">Queue Status</h3>
               {status.error ? (
-                <p className="text-red-600 bg-red-50 p-4 rounded-lg">{status.error}</p>
+                <p className="text-red-600 bg-red-50 p-3 sm:p-4 rounded-lg text-sm sm:text-base">{status.error}</p>
               ) : (
-                <pre className="bg-white p-4 rounded-lg overflow-auto text-sm border border-gray-200">
+                <pre className="bg-white p-3 sm:p-4 rounded-lg overflow-auto text-xs sm:text-sm border border-gray-200">
                   {JSON.stringify(status, null, 2)}
                 </pre>
               )}
@@ -76,8 +76,8 @@ export default function UserDashboard() {
           )}
 
           {!status && (
-            <div className="text-center py-12 text-gray-500">
-              <p className="text-lg">Click a button above to get started</p>
+            <div className="text-center py-8 sm:py-12 text-gray-500">
+              <p className="text-base sm:text-lg">Click a button above to get started</p>
             </div>
           )}
         </div>
