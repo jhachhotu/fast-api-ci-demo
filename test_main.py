@@ -7,4 +7,5 @@ client = TestClient(app)
 def test_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "CI is working"}
+    assert response.json() == {"message": "CD AUTO DEPLOY VERIFIED"}
+
