@@ -3,3 +3,8 @@ uvicorn
 pytest
 httpx
 gunicorn
+sqlalchemy
+python-jose
+bcrypt
+python-multipart
+email-validator
